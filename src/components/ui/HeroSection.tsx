@@ -5,26 +5,30 @@ import { Blocks, DownloadIcon, MonitorPlay, Clapperboard } from "lucide-react";
 import ThemeTogglebutton from "./ThemeToggle";
 import bg from "@/assets/collage.jpg";
 
-export default function Component() {
+export default function LandingPage() {
   return (
     <div className="flex flex-col min-h-[100dvh]">
       <header className="px-4 lg:px-12 py-3 backdrop-blur-md shadow fixed w-full top-0 flex items-center justify-between">
-        <Link
-          href="/"
-          className="flex items-center justify-center"
-          prefetch={false}
-        >
-          <Clapperboard size={30} color="white" />
+        <Link href="/" className="flex items-center justify-center">
+          <Clapperboard size={30}/>
           <span className="font-bold text-lg md:text-lg ml-2">FilmVilla</span>
         </Link>
         <div className="flex gap-4">
           <ThemeTogglebutton />
-          <Button>Sign Up</Button>
+          <Link href="/signup">
+            <Button>Sign Up</Button>
+          </Link>
         </div>
       </header>
       <main className="flex-1">
-        <section className="w-full min-h-svh text-white flex flex-col items-center justify-center border">
-          <Image src={bg} alt="bg" width={1200} height={800} className="absolute w-screen h-screen -z-20 inset-0 filter brightness-75" />
+        <section className="w-full min-h-svh text-white flex flex-col items-center justify-center">
+          <Image
+            src={bg}
+            alt="bg"
+            width={1200}
+            height={800}
+            className="absolute w-screen h-screen -z-20 inset-0 filter brightness-75"
+          />
           <div className="absolute w-full h-screen inset-0 -z-10 bg-gradient-to-b from-transparent to-black"></div>
           <div className="container px-4 md:px-6 flex flex-col items-center text-center">
             <Clapperboard className="h-20 w-auto mb-6" />
@@ -34,9 +38,11 @@ export default function Component() {
             <p className="text-lg md:text-xl mb-8">
               Watch anywhere. Cancel anytime.
             </p>
-            <Button className="px-8 py-3 rounded-md text-lg font-medium">
-              Sign Up Now
-            </Button>
+            <Link href="/signup">
+              <Button size={"lg"} className="text-lg">
+                Sign Up Now
+              </Button>
+            </Link>
           </div>
         </section>
         <section className="w-full py-24 md:py-32 lg:py-40">
