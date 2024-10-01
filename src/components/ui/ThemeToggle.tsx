@@ -13,7 +13,7 @@ export default function ThemeTogglebutton({
     <Button
       size="icon"
       className={cn("rounded-full bg-background/30", className)}
-      variant="outline"
+      variant="secondary"
       onClick={() => {
         setTheme(theme === "dark" ? "light" : "dark");
       }}
