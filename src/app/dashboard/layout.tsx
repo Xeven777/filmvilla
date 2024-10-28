@@ -3,11 +3,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ChevronRight,
+  ClapperboardIcon,
   Home,
   LineChart,
   Package2,
   Search,
   Settings,
+  UserCircleIcon,
   Users2,
 } from "lucide-react";
 
@@ -19,6 +21,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export const metadata: Metadata = {
   title: "Dashboard | FilmVilla",
@@ -40,13 +43,13 @@ export default function RootLayout({
                 href="#"
                 className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
               >
-                <Package2 className="h-4 w-4 transition-all group-hover:scale-110" />
-                <span className="sr-only">Netflix</span>
+                <ClapperboardIcon className="h-4 w-4 transition-all group-hover:scale-110" />
+                <span className="sr-only">FilmVilla</span>
               </Link>
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
-                    href="#"
+                    href="/dashboard"
                     className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                   >
                     <Home className="h-5 w-5" />
@@ -58,14 +61,14 @@ export default function RootLayout({
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
-                    href="#"
+                    href="/dashboard/profile"
                     className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                   >
-                    <Users2 className="h-5 w-5" />
-                    <span className="sr-only">TV Shows</span>
+                    <UserCircleIcon className="h-5 w-5" />
+                    <span className="sr-only">Profile</span>
                   </Link>
                 </TooltipTrigger>
-                <TooltipContent side="right">TV Shows</TooltipContent>
+                <TooltipContent side="right">Profile</TooltipContent>
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -115,7 +118,7 @@ export default function RootLayout({
                       className="flex items-center gap-2 text-lg font-semibold"
                     >
                       <Package2 className="h-5 w-5" />
-                      Netflix
+                      FilmVilla
                     </Link>
                     <Link
                       href="#"
@@ -141,20 +144,21 @@ export default function RootLayout({
                   </nav>
                 </SheetContent>
               </Sheet>
-              <div className="flex w-full items-center gap-4">
+              <div className="flex w-11/12 items-center gap-4 p-2 fixed top-0">
                 <form className="hidden flex-1 sm:block">
                   <div className="relative">
                     <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                     <Input
                       type="search"
                       placeholder="Search..."
-                      className="w-full appearance-none bg-background pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px]"
+                      className="w-full bg-background/20 backdrop-blur border-border/10 shadow-sm pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px]"
                     />
                   </div>
                 </form>
-                <Button size="sm" className="ml-auto">
-                  Sign In
-                </Button>
+                <Avatar>
+                  <AvatarImage src="https://github.com/aritraduttagupta.png" />
+                  <AvatarFallback>ADG</AvatarFallback>
+                </Avatar>
               </div>
             </header>
             {children}
