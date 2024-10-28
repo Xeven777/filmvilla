@@ -63,7 +63,7 @@ export default function LandingPage() {
               src="/st5.avif"
               width="550"
               height="310"
-              alt="Netflix on TV"
+              alt="FilmVilla on TV"
               className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
             />
           </div>
@@ -102,7 +102,7 @@ export default function LandingPage() {
       </main>
       <footer className="bg-background py-8 border-t">
         <div className="container px-4 md:px-6 text-center text-sm text-[#737373]">
-          &copy; 2024 Netflix, Inc.
+          &copy; 2024 FilmVilla, Inc.
         </div>
       </footer>
     </div>

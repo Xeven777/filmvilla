@@ -13,6 +13,7 @@ import {
     HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import Link from "next/link";
 
 export default function Dashboard() {
   return (
@@ -20,13 +21,13 @@ export default function Dashboard() {
       <section className="relative">
         <AspectRatio ratio={16 / 9}>
           <Image
-            src="/placeholder.svg?height=720&width=1280"
+            src="https://wallpapers.com/images/featured/stranger-things-dkttxahzpl44tbsa.jpg"
             alt="Featured movie"
             className="object-cover"
             fill
           />
         </AspectRatio>
-        <div className="absolute inset-0 flex items-center bg-gradient-to-r from-background p-6 to-transparent">
+        <div className="absolute inset-0 flex items-center bg-gradient-to-r from-background/80 p-6 to-transparent">
           <div className="max-w-lg">
             <h1 className="mb-4 text-4xl font-bold">Featured Movie Title</h1>
             <p className="mb-4 text-lg">
@@ -53,20 +54,19 @@ export default function Dashboard() {
             {[...Array(10)].map((_, i) => (
               <HoverCard key={i}>
                 <HoverCardTrigger asChild>
-                  <Card className="w-[250px]">
-                    <CardContent className="p-0">
-                      <AspectRatio ratio={16 / 9}>
-                        <Image
-                          src={`/placeholder.svg?height=250&width=444&text=Movie+${
-                            i + 1
-                          }`}
-                          alt={`Movie ${i + 1}`}
-                          className="rounded-t-lg object-cover"
-                          fill
-                        />
-                      </AspectRatio>
-                    </CardContent>
-                  </Card>
+                  <Link href="/dashboard/watch">
+                    <Card className="w-[250px]">
+                      <CardContent className="p-0">
+                        <AspectRatio ratio={16 / 9}>
+                          <img
+                            src={"https://picsum.photos/400/250"}
+                            alt={`Movie ${i + 1}`}
+                            className="rounded-t-lg object-cover"
+                          />
+                        </AspectRatio>
+                      </CardContent>
+                    </Card>
+                  </Link>
                 </HoverCardTrigger>
                 <HoverCardContent className="w-80">
                   <div className="flex justify-between space-x-4">
