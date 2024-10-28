@@ -79,7 +79,8 @@ export default function MovieWatchPageComponent() {
             <span className="text-sm text-green-500">98% Match</span>
           </div>
           <p className="text-zinc-300 mb-6">
-            A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.
+            A team of explorers travel through a wormhole in space in an attempt
+            to ensure humanity&apos;s survival.
           </p>
           <div className="flex items-center space-x-4 mb-8">
             <Button>
@@ -97,7 +98,9 @@ export default function MovieWatchPageComponent() {
           <div className="grid grid-cols-2 gap-8">
             <div>
               <h2 className="text-xl font-semibold mb-2">Cast</h2>
-              <p className="text-zinc-400">Matthew McConaughey, Anne Hathaway, Jessica Chastain</p>
+              <p className="text-zinc-400">
+                Matthew McConaughey, Anne Hathaway, Jessica Chastain
+              </p>
             </div>
             <div>
               <h2 className="text-xl font-semibold mb-2">Genres</h2>
@@ -140,9 +143,15 @@ export default function MovieWatchPageComponent() {
       <footer className="mt-auto py-6 px-4 bg-zinc-900">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center">
           <div className="flex space-x-4 mb-4 md:mb-0">
-            <Button variant="link" className="text-zinc-400 hover:text-white">Audio and Subtitles</Button>
-            <Button variant="link" className="text-zinc-400 hover:text-white">Help Center</Button>
-            <Button variant="link" className="text-zinc-400 hover:text-white">Gift Cards</Button>
+            <Button variant="link" className="text-zinc-400 hover:text-white">
+              Audio and Subtitles
+            </Button>
+            <Button variant="link" className="text-zinc-400 hover:text-white">
+              Help Center
+            </Button>
+            <Button variant="link" className="text-zinc-400 hover:text-white">
+              Gift Cards
+            </Button>
           </div>
           <div className="flex items-center space-x-4">
             <Button variant="outline" size="sm">
@@ -154,5 +163,5 @@ export default function MovieWatchPageComponent() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
