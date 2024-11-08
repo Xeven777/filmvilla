@@ -1,0 +1,66 @@
+export const moviedata = [
+  {
+    img: "https://pastposters.com/cdn/shop/files/conjuring-cinema-quad-movie-poster-_3_c9df05c1-d466-4985-b41d-52ad752c76a0.jpg?v=1730153023&width=990",
+    title: "The Conjuring",
+    info: "Its a Horror Movies.....Dont Watch alone",
+  },
+  {
+    img: "https://static.toiimg.com/thumb/msid-112274362,imgsize-68790,width-400,resizemode-4/112274362.jpg ",
+    title: "Fast and Furius",
+    info: "Its a Series",
+  },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+];
+export const moviedata2 = [
+  {
+    img: "https://pastposters.com/cdn/shop/files/conjuring-cinema-quad-movie-poster-_3_c9df05c1-d466-4985-b41d-52ad752c76a0.jpg?v=1730153023&width=990",
+    title: "The Conjuring",
+    info: "Its a Horror Movies.....Dont Watch alone",
+  },
+  {
+    img: "https://static.toiimg.com/thumb/msid-112274362,imgsize-68790,width-400,resizemode-4/112274362.jpg ",
+    title: "Fast and Furius",
+    info: "Its a Series",
+  },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+];
+export const moviedata3 = [
+  {
+    img: "https://pastposters.com/cdn/shop/files/conjuring-cinema-quad-movie-poster-_3_c9df05c1-d466-4985-b41d-52ad752c76a0.jpg?v=1730153023&width=990",
+    title: "The Conjuring",
+    info: "Its a Horror Movies.....Dont Watch alone",
+  },
+  {
+    img: "https://static.toiimg.com/thumb/msid-112274362,imgsize-68790,width-400,resizemode-4/112274362.jpg ",
+    title: "Fast and Furius",
+    info: "Its a Series",
+  },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+  { img: "", title: "", info: "" },
+];
