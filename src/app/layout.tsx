@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import { ClerkProvider, SignInButton } from "@clerk/nextjs";
 import { Cabin } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
-
 const font = Cabin({
   weight: ["400", "500", "600", "700"],
   display: "swap",
@@ -20,12 +20,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={font.className}>
-        <ThemeProvider attribute="class">
-          {children}
-        </ThemeProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={font.className}>
+          <ThemeProvider attribute="class">{children}</ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
