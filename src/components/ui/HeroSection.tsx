@@ -4,20 +4,23 @@ import Image from "next/image";
 import { Blocks, DownloadIcon, MonitorPlay, Clapperboard } from "lucide-react";
 import ThemeTogglebutton from "./ThemeToggle";
 import bg from "@/assets/collage.jpg";
+import { SignedIn, SignInButton } from "@clerk/nextjs";
 
 export default function LandingPage() {
   return (
     <div className="flex flex-col min-h-[100dvh]">
       <header className="px-4 lg:px-12 py-3 backdrop-blur-md shadow fixed w-full top-0 flex items-center justify-between">
         <Link href="/" className="flex items-center justify-center">
-          <Clapperboard size={30}/>
+          <Clapperboard size={30} />
           <span className="font-bold text-lg md:text-lg ml-2">FilmVilla</span>
         </Link>
         <div className="flex gap-4">
           <ThemeTogglebutton />
-          <Link href="/signup">
-            <Button>Sign Up</Button>
-          </Link>
+          
+            <Button>
+              <SignInButton />
+            </Button>
+          
         </div>
       </header>
       <main className="flex-1">

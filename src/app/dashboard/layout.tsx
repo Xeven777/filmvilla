@@ -22,6 +22,9 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { UserButton } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Dashboard | FilmVilla",
@@ -33,6 +36,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <div>
       <TooltipProvider>
@@ -155,10 +159,11 @@ export default function RootLayout({
                     />
                   </div>
                 </form>
-                <Avatar>
+                {/* <Avatar>
                   <AvatarImage src="https://github.com/aritraduttagupta.png" />
                   <AvatarFallback>ADG</AvatarFallback>
-                </Avatar>
+                </Avatar> */}
+                <UserButton/>
               </div>
             </header>
             {children}

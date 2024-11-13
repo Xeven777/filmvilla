@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/hover-card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Link from "next/link";
+import { moviedata, moviedata2, moviedata3 } from "@/lib/data";
 
 export default function Dashboard() {
   return (
@@ -51,7 +52,7 @@ export default function Dashboard() {
         <h2 className="mb-4 text-2xl font-semibold">Trending Now</h2>
         <ScrollArea>
           <div className="flex space-x-4 pb-4">
-            {[...Array(10)].map((_, i) => (
+            {moviedata.map((movie, i) => (
               <HoverCard key={i}>
                 <HoverCardTrigger asChild>
                   <Link href="/dashboard/watch">
@@ -59,9 +60,9 @@ export default function Dashboard() {
                       <CardContent className="p-0">
                         <AspectRatio ratio={16 / 9}>
                           <img
-                            src={"https://picsum.photos/400/250"}
-                            alt={`Movie ${i + 1}`}
-                            className="rounded-t-lg object-cover"
+                            src={movie.img}
+                            alt={movie.title}
+                            className="rounded-t-lg object-cover size-full"
                           />
                         </AspectRatio>
                       </CardContent>
@@ -71,11 +72,98 @@ export default function Dashboard() {
                 <HoverCardContent className="w-80">
                   <div className="flex justify-between space-x-4">
                     <div className="space-y-1">
-                      <h4 className="text-sm font-semibold">Movie {i + 1}</h4>
-                      <p className="text-sm">
-                        A brief description of Movie {i + 1}. This film is part
-                        of our trending collection.
-                      </p>
+                      <h4 className="text-sm font-semibold">{movie.title}</h4>
+                      <p className="text-sm">{movie.info}</p>
+                      <div className="flex items-center pt-2">
+                        <Button size="sm" className="mr-2">
+                          <Play className="mr-2 h-4 w-4" />
+                          Play
+                        </Button>
+                        <Button size="sm" variant="outline">
+                          <Plus className="mr-2 h-4 w-4" />
+                          My List
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </HoverCardContent>
+              </HoverCard>
+            ))}
+          </div>
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
+      </section>
+      <section className="p-6">
+        <h2 className="mb-4 text-2xl font-semibold">New Release</h2>
+        <ScrollArea>
+          <div className="flex space-x-4 pb-4">
+            {moviedata2.map((movie, i) => (
+              <HoverCard key={i}>
+                <HoverCardTrigger asChild>
+                  <Link href="/dashboard/watch">
+                    <Card className="w-[250px]">
+                      <CardContent className="p-0">
+                        <AspectRatio ratio={16 / 9}>
+                          <img
+                            src={movie.img}
+                            alt={movie.title}
+                            className="rounded-t-lg object-cover size-full"
+                          />
+                        </AspectRatio>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                </HoverCardTrigger>
+                <HoverCardContent className="w-80">
+                  <div className="flex justify-between space-x-4">
+                    <div className="space-y-1">
+                      <h4 className="text-sm font-semibold">{movie.title}</h4>
+                      <p className="text-sm">{movie.info}</p>
+                      <div className="flex items-center pt-2">
+                        <Button size="sm" className="mr-2">
+                          <Play className="mr-2 h-4 w-4" />
+                          Play
+                        </Button>
+                        <Button size="sm" variant="outline">
+                          <Plus className="mr-2 h-4 w-4" />
+                          My List
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </HoverCardContent>
+              </HoverCard>
+            ))}
+          </div>
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
+      </section>
+      <section className="p-6">
+        <h2 className="mb-4 text-2xl font-semibold">Your favorites </h2>
+        <ScrollArea>
+          <div className="flex space-x-4 pb-4">
+            {moviedata3.map((movie, i) => (
+              <HoverCard key={i}>
+                <HoverCardTrigger asChild>
+                  <Link href="/dashboard/watch">
+                    <Card className="w-[250px]">
+                      <CardContent className="p-0">
+                        <AspectRatio ratio={16 / 9}>
+                          <img
+                            src={movie.img}
+                            alt={movie.title}
+                            className="rounded-t-lg object-cover size-full"
+                          />
+                        </AspectRatio>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                </HoverCardTrigger>
+                <HoverCardContent className="w-80">
+                  <div className="flex justify-between space-x-4">
+                    <div className="space-y-1">
+                      <h4 className="text-sm font-semibold">{movie.title}</h4>
+                      <p className="text-sm">{movie.info}</p>
                       <div className="flex items-center pt-2">
                         <Button size="sm" className="mr-2">
                           <Play className="mr-2 h-4 w-4" />
