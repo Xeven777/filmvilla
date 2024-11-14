@@ -30,10 +30,11 @@ export default function Dashboard() {
         </AspectRatio>
         <div className="absolute inset-0 flex items-center bg-gradient-to-r from-background/80 p-6 to-transparent">
           <div className="max-w-lg">
-            <h1 className="mb-4 text-4xl font-bold">Featured Movie Title</h1>
+            <h1 className="mb-4 text-4xl font-bold">Stranger Things (S2)</h1>
             <p className="mb-4 text-lg">
-              A brief description of the featured movie. This exciting film will
-              keep you on the edge of your seat!
+              In 1980s Indiana, a group of young friends witness supernatural
+              forces and secret government exploits. As they search for answers,
+              the children unravel a series of extraordinary mysteries.
             </p>
             <div className="flex gap-4">
               <Button size="lg">
