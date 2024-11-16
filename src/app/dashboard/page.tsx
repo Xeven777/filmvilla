@@ -1,16 +1,13 @@
 import Image from "next/image";
-import {
-    Info, Play,
-    Plus
-} from "lucide-react";
+import { Info, Play, Plus } from "lucide-react";
 
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
-    HoverCard,
-    HoverCardContent,
-    HoverCardTrigger,
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Link from "next/link";
@@ -37,10 +34,12 @@ export default function Dashboard() {
               the children unravel a series of extraordinary mysteries.
             </p>
             <div className="flex gap-4">
-              <Button size="lg">
-                <Play className="mr-2 h-4 w-4" />
-                Play
-              </Button>
+              <Link href={"/dashboard/watch/movie"}>
+                <Button size="lg">
+                  <Play className="mr-2 h-4 w-4" />
+                  Play
+                </Button>
+              </Link>
               <Button size="lg" variant="outline">
                 <Info className="mr-2 h-4 w-4" />
                 More Info
