@@ -1,19 +1,28 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
-import { Separator } from "@/components/ui/separator"
-import { ChevronLeft, Heart, MoreHorizontal, Play, Plus, Share2, ThumbsUp, Volume2 } from "lucide-react"
-import Link from "next/link"
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
+import {
+  ChevronLeft,
+  Heart,
+  MoreHorizontal,
+  Play,
+  Plus,
+  Share2,
+  ThumbsUp,
+  Volume2,
+} from "lucide-react";
+import Link from "next/link";
 
 export default function MovieWatchPageComponent() {
-  const [isPlaying, setIsPlaying] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const togglePlay = () => {
-    setIsPlaying(!isPlaying)
-  }
+    setIsPlaying(!isPlaying);
+  };
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -43,18 +52,20 @@ export default function MovieWatchPageComponent() {
             className="w-full h-full object-cover aspect-video"
           />
           <div className="absolute inset-0 flex items-center justify-center">
-            <Button
-              variant="outline"
-              size="icon"
-              className="w-16 h-16 rounded-full bg-black/50 hover:bg-black/75 transition-colors"
-              onClick={togglePlay}
-            >
-              {isPlaying ? (
-                <span className="sr-only">Pause</span>
-              ) : (
-                <Play className="h-8 w-8" />
-              )}
-            </Button>
+            <Link href={"/dashboard/watch/movie"}>
+              <Button
+                variant="outline"
+                size="icon"
+                className="w-16 h-16 rounded-full bg-black/50 hover:bg-black/75 transition-colors"
+                onClick={togglePlay}
+              >
+                {isPlaying ? (
+                  <span className="sr-only">Pause</span>
+                ) : (
+                  <Play className="h-8 w-8" />
+                )}
+              </Button>
+            </Link>
           </div>
           <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
             <div className="flex items-center space-x-2">

@@ -1,16 +1,13 @@
 import Image from "next/image";
-import {
-    Info, Play,
-    Plus
-} from "lucide-react";
+import { Info, Play, Plus } from "lucide-react";
 
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
-    HoverCard,
-    HoverCardContent,
-    HoverCardTrigger,
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Link from "next/link";
@@ -30,16 +27,19 @@ export default function Dashboard() {
         </AspectRatio>
         <div className="absolute inset-0 flex items-center bg-gradient-to-r from-background/80 p-6 to-transparent">
           <div className="max-w-lg">
-            <h1 className="mb-4 text-4xl font-bold">Featured Movie Title</h1>
+            <h1 className="mb-4 text-4xl font-bold">Stranger Things (S2)</h1>
             <p className="mb-4 text-lg">
-              A brief description of the featured movie. This exciting film will
-              keep you on the edge of your seat!
+              In 1980s Indiana, a group of young friends witness supernatural
+              forces and secret government exploits. As they search for answers,
+              the children unravel a series of extraordinary mysteries.
             </p>
             <div className="flex gap-4">
-              <Button size="lg">
-                <Play className="mr-2 h-4 w-4" />
-                Play
-              </Button>
+              <Link href={"/dashboard/watch/movie"}>
+                <Button size="lg">
+                  <Play className="mr-2 h-4 w-4" />
+                  Play
+                </Button>
+              </Link>
               <Button size="lg" variant="outline">
                 <Info className="mr-2 h-4 w-4" />
                 More Info

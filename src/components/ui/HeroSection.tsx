@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Blocks, DownloadIcon, MonitorPlay, Clapperboard } from "lucide-react";
 import ThemeTogglebutton from "./ThemeToggle";
 import bg from "@/assets/collage.jpg";
-import { SignedIn, SignInButton } from "@clerk/nextjs";
+import { SignInButton, SignUpButton } from "@clerk/nextjs";
 
 export default function LandingPage() {
   return (
@@ -16,11 +16,9 @@ export default function LandingPage() {
         </Link>
         <div className="flex gap-4">
           <ThemeTogglebutton />
-          
-            <Button>
-              <SignInButton />
-            </Button>
-          
+          <Button>
+            <SignInButton />
+          </Button>
         </div>
       </header>
       <main className="flex-1">
@@ -41,11 +39,16 @@ export default function LandingPage() {
             <p className="text-lg md:text-xl mb-8">
               Watch anywhere. Cancel anytime.
             </p>
-            <Link href="/signup">
-              <Button size={"lg"} className="text-lg">
-                Sign Up Now
-              </Button>
-            </Link>
+            <div className="flex gap-4">
+              <Link href={"/dashboard"}>
+                <Button size={"lg"} variant={"secondary"}>
+                  Dashboard
+                </Button>
+              </Link>
+            <Button variant={"default"} size={"lg"}>
+              <SignInButton>Sign Up Now</SignInButton>
+            </Button>
+            </div>
           </div>
         </section>
         <section className="w-full py-24 md:py-32 lg:py-40">

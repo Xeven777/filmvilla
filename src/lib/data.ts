@@ -1,3 +1,4 @@
+
 export const moviedata = [
   {
     img: "https://pastposters.com/cdn/shop/files/conjuring-cinema-quad-movie-poster-_3_c9df05c1-d466-4985-b41d-52ad752c76a0.jpg?v=1730153023&width=990",
@@ -25,18 +26,50 @@ export const moviedata2 = [
 
 ];
 export const moviedata3 = [
-
   {
     img: "https://static.toiimg.com/thumb/msid-112274362,imgsize-68790,width-400,resizemode-4/112274362.jpg ",
     title: "Fast and Furius",
     info: "Its a Series",
   },
-  { img: "https://wallpapercave.com/wp/wp13210862.jpg", title: "Napoleon", info: "A historical epic directed by Ridley Scott, focusing on Napoleon Bonaparte." },
-  
-  { img: "https://images.squarespace-cdn.com/content/v1/5ec686197f8b2976074846c2/1618809593080-N5PB8CWYOW3OPDE2TT6E/Feature+3-1.png?format=2500w", title: "Inception", info: "A mind-bending sci-fi thriller with unforgettable visuals and storytelling." },
-  { img: "https://i.redd.it/x1ihw7kcn0r21.jpg", title: "Parasite", info: " A dark comedy-thriller that explores class disparity in South Korea." },
-  { img: "https://images.alphacoders.com/547/thumb-1920-547409.jpg", title: "The Grand Budapest Hotel", info: "Wes Anderson's quirky, visually unique comedy-drama." },
-  { img: "https://i.etsystatic.com/47325174/r/il/c6a3b0/5556719109/il_794xN.5556719109_dp1g.jpg", title: "The Shawshank Redemption", info: "A classic tale of hope and friendship set in prison." },
-  { img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVofIotjHIAodWTN_mVaRxlH8lWOZgwK1eZQ&s", title: "Spirited Away", info: "A beautifully animated Japanese film about a young girl's journey in a mystical world." },
+  {
+    img: "https://m.media-amazon.com/images/M/MV5BN2U5Y2I1YTMtMzhiZC00ZGNmLWE3Y2ItMTRlOWQ0NWQzOTY1XkEyXkFqcGc@._V1_FMjpg_UX1024_.jpg",
+    title: "Hate Story",
+    info: "Intense and thrilling drama with a focus on revenge and betrayal.",
+  },
+  {
+    img: "https://nextbestpicture-com.b-cdn.net/wp-content/uploads/2022/10/Bros-Poster-NBPpodcat-1536x768.jpg",
+    title: "Bros",
+    info: "Bromantic comedy about two estranged brothers who reconnect on a road trip.",
+  },
+  {
+    img: "https://wallpapercave.com/wp/wp13210862.jpg",
+    title: "Napoleon",
+    info: "A historical epic directed by Ridley Scott, focusing on Napoleon Bonaparte.",
+  },
 
+  {
+    img: "https://images.squarespace-cdn.com/content/v1/5ec686197f8b2976074846c2/1618809593080-N5PB8CWYOW3OPDE2TT6E/Feature+3-1.png?format=2500w",
+    title: "Inception",
+    info: "A mind-bending sci-fi thriller with unforgettable visuals and storytelling.",
+  },
+  {
+    img: "https://i.redd.it/x1ihw7kcn0r21.jpg",
+    title: "Parasite",
+    info: " A dark comedy-thriller that explores class disparity in South Korea.",
+  },
+  {
+    img: "https://images.alphacoders.com/547/thumb-1920-547409.jpg",
+    title: "The Grand Budapest Hotel",
+    info: "Wes Anderson's quirky, visually unique comedy-drama.",
+  },
+  {
+    img: "https://i.etsystatic.com/47325174/r/il/c6a3b0/5556719109/il_794xN.5556719109_dp1g.jpg",
+    title: "The Shawshank Redemption",
+    info: "A classic tale of hope and friendship set in prison.",
+  },
+  {
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVofIotjHIAodWTN_mVaRxlH8lWOZgwK1eZQ&s",
+    title: "Spirited Away",
+    info: "A beautifully animated Japanese film about a young girl's journey in a mystical world.",
+  },
 ];
