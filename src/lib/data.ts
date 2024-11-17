@@ -79,9 +79,9 @@ export const moviedata3 = [
     info: "Its a Series",
   },
   {
-    img: "hhttps://reporter.rit.edu:8443/sites/pubDir/slideShow/04-15/85-1033-168352016.jpg",
+    img: "https://thebluemoment.com/wp-content/uploads/2015/01/whiplash-poster.jpg",
     title: "Whiplash",
-    info: "An electrifying and emotionally charged story with brilliant performances, particularly by J.K. Simmons, who won an Academy Award for his role. The film’s tension-filled narrative and exhilarating music sequences are unforgettable.",
+    info: "An electrifying and emotionally charged story with brilliant performances, particularly by J.K. Simmons, who won an Academy Award for his role. The film's tension-filled narrative and exhilarating music sequences are unforgettable.",
   },
   {
     img: "https://www.hdwallpapers.net/previews/interstellar-the-movie-475.jpg",
