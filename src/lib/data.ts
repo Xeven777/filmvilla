@@ -79,7 +79,7 @@ export const moviedata3 = [
     info: "Its a Series",
   },
   {
-    img: "https://thebluemoment.com/wp-content/uploads/2015/01/whiplash-poster.jpg",
+    img: "https://image.jimcdn.com/app/cms/image/transf/none/path/s44063efe23c3239b/image/i1e488df3c538cc31/version/1483692379/image.png",
     title: "Whiplash",
     info: "An electrifying and emotionally charged story with brilliant performances, particularly by J.K. Simmons, who won an Academy Award for his role. The film's tension-filled narrative and exhilarating music sequences are unforgettable.",
   },
