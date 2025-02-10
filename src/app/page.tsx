@@ -4,11 +4,11 @@ import Image from "next/image";
 import { Blocks, DownloadIcon, MonitorPlay, Clapperboard } from "lucide-react";
 import ThemeTogglebutton from "@/components/ui/ThemeToggle";
 import bg from "@/assets/collage.jpg";
-import { SignInButton, SignUpButton } from "@clerk/nextjs";
+import { SignInButton } from "@clerk/nextjs";
 
 export default function LandingPage() {
   return (
-    <div className="flex flex-col min-h-[100dvh]">
+    <div className="flex flex-col min-h-dvh">
       <header className="px-4 lg:px-12 py-3 backdrop-blur-md shadow fixed w-full top-0 flex items-center justify-between">
         <Link href="/" className="flex items-center justify-center">
           <Clapperboard size={30} />
@@ -16,8 +16,12 @@ export default function LandingPage() {
         </Link>
         <div className="flex gap-4">
           <ThemeTogglebutton />
-          <Button>
-            <SignInButton />
+          <Button asChild>
+            <SignInButton
+              withSignUp
+              mode="modal"
+              fallbackRedirectUrl={"/dashboard"}
+            />
           </Button>
         </div>
       </header>
@@ -45,8 +49,14 @@ export default function LandingPage() {
                   Dashboard
                 </Button>
               </Link>
-              <Button variant={"default"} size={"lg"}>
-                <SignInButton>Sign Up Now</SignInButton>
+              <Button variant={"default"} size={"lg"} asChild>
+                <SignInButton
+                  withSignUp
+                  mode="modal"
+                  fallbackRedirectUrl={"/dashboard"}
+                >
+                  Sign Up Now
+                </SignInButton>
               </Button>
             </div>
           </div>
@@ -107,7 +117,7 @@ export default function LandingPage() {
         </section>
       </main>
       <footer className="bg-background py-8 border-t">
-        <div className="container px-4 md:px-6 text-center text-sm text-[#737373]">
+        <div className="container px-4 md:px-6 text-center text-sm text-muted-foreground">
           &copy; 2024 FilmVilla, Inc.
         </div>
       </footer>

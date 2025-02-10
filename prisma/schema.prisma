@@ -8,10 +8,11 @@ datasource db {
 }
 
 model Movies {
-  id      String   @id @default(auto()) @map("_id") @db.ObjectId
-  title   String
-  info    String
-  rating  Float
-  imgUrl  String
-  likedBy String[]
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  title    String
+  info     String
+  rating   Float
+  imgUrl   String
+  likedBy  String[]
+  category String
 }
