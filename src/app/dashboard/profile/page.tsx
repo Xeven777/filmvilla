@@ -1,4 +1,4 @@
-import { Settings } from "lucide-react";
+import { Clapperboard, DotIcon, Settings } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,6 +13,8 @@ import { Progress } from "@/components/ui/progress";
 import { currentUser } from "@clerk/nextjs/server";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { redirect } from "next/navigation";
+import { UserButton, UserProfile } from "@clerk/nextjs";
+import Link from "next/link";
 
 export default async function Dashboard() {
   const userData = await currentUser();
@@ -31,7 +33,7 @@ export default async function Dashboard() {
 
           {/* User Profile and Subscription */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <Card className="col-span-2">
+            <Card className="col-span-2 bg-gradient-to-r from-card to-primary/20 text-foreground relative">
               <CardHeader>
                 <CardTitle>Your Profile</CardTitle>
               </CardHeader>
@@ -53,9 +55,12 @@ export default async function Dashboard() {
                     </p>
                   </div>
                 </div>
+                <Clapperboard className="size-40 text-muted-foreground/20 absolute top-1/2 -translate-y-1/2 right-0" />
               </CardContent>
               <CardFooter>
-                <Button variant="outline">Edit Profile</Button>
+                <Link href="/dashboard/profile/settings">
+                  <Button variant="outline">Edit Profile</Button>
+                </Link>
               </CardFooter>
             </Card>
             <Card>
