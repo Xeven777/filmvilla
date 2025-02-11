@@ -1,6 +1,7 @@
 import { Webhook } from "svix";
 import { headers } from "next/headers";
 import { WebhookEvent } from "@clerk/nextjs/server";
+import prisma from "@/lib/prisma";
 
 export async function POST(req: Request) {
   const SIGNING_SECRET = process.env.SIGNING_SECRET;
@@ -53,8 +54,24 @@ export async function POST(req: Request) {
   const eventType = evt.type;
 
   if (eventType === "user.created") {
-    const { id, first_name, image_url } = evt.data;
-    
+    try {
+      const { id, first_name, image_url } = evt.data;
+      const userinDb = await prisma.users.create({
+        data: {
+          clerkId: id,
+          firstName: first_name || "Unknown",
+          imgUrl: image_url,
+        },
+      });
+      if (userinDb) {
+        console.log("User created in database", userinDb);
+      }
+    } catch (error) {
+      console.error("Error: Could not create user:", error);
+      return new Response("Error: Could not create user", {
+        status: 500,
+      });
+    }
   }
   console.log("Webhook payload:", body);
 

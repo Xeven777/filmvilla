@@ -12,7 +12,7 @@ model Movies {
   title    String
   info     String
   rating   Float
-  imgUrl   String
+  img      String
   videoUrl String
   category String
   likedBy  MovieLikes[]
