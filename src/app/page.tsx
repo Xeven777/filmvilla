@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Blocks, DownloadIcon, MonitorPlay, Clapperboard } from "lucide-react";
 import ThemeTogglebutton from "@/components/ui/ThemeToggle";
 import bg from "@/assets/collage.jpg";
-import { SignInButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 
 export default function LandingPage() {
   return (
@@ -16,13 +16,23 @@ export default function LandingPage() {
         </Link>
         <div className="flex gap-4">
           <ThemeTogglebutton />
-          <Button asChild>
-            <SignInButton
-              withSignUp
-              mode="modal"
-              fallbackRedirectUrl={"/dashboard"}
-            />
-          </Button>
+          <SignedIn>
+            <Link href={"/dashboard"}>
+              <Button size={"lg"} variant={"ghost"} className="text-white">
+                Dashboard
+              </Button>
+            </Link>
+          </SignedIn>
+
+          <SignedOut>
+            <Button asChild>
+              <SignInButton
+                withSignUp
+                mode="modal"
+                fallbackRedirectUrl={"/dashboard"}
+              />
+            </Button>
+          </SignedOut>
         </div>
       </header>
       <main className="flex-1">
@@ -49,15 +59,17 @@ export default function LandingPage() {
                   Dashboard
                 </Button>
               </Link>
-              <Button variant={"default"} size={"lg"} asChild>
-                <SignInButton
-                  withSignUp
-                  mode="modal"
-                  fallbackRedirectUrl={"/dashboard"}
-                >
-                  Sign Up Now
-                </SignInButton>
-              </Button>
+              <SignedOut>
+                <Button variant={"default"} size={"lg"} asChild>
+                  <SignInButton
+                    withSignUp
+                    mode="modal"
+                    fallbackRedirectUrl={"/dashboard"}
+                  >
+                    Sign Up Now
+                  </SignInButton>
+                </Button>
+              </SignedOut>
             </div>
           </div>
         </section>

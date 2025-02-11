@@ -8,11 +8,30 @@ datasource db {
 }
 
 model Movies {
-  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  id       String       @id @default(auto()) @map("_id") @db.ObjectId
   title    String
   info     String
   rating   Float
   imgUrl   String
-  likedBy  String[]
+  videoUrl String
   category String
+  likedBy  MovieLikes[]
+}
+
+model Users {
+  id        String       @id @default(auto()) @map("_id") @db.ObjectId
+  clerkId   String
+  firstName String
+  imgUrl    String
+  likes     MovieLikes[]
+}
+
+model MovieLikes {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  movie   Movies @relation(fields: [movieId], references: [id])
+  movieId String @db.ObjectId
+  user    Users  @relation(fields: [userId], references: [id])
+  userId  String @db.ObjectId
+
+  @@unique([movieId, userId])
 }
