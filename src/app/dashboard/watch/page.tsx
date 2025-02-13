@@ -27,10 +27,6 @@ export default function MovieWatchPageComponent() {
   const [isLiked, setIsLiked] = useState(false);
   const { user } = useUser();
 
-  if (!movieId) {
-    return <div>Invalid Movie ID</div>;
-  }
-
   useEffect(() => {
     const fetchData = async () => {
       if (movieId && user) {
@@ -49,6 +45,10 @@ export default function MovieWatchPageComponent() {
       console.error(error);
     }
   }, [movieId, user]);
+
+  if (!movieId || !movieDetails) {
+    return <div>Invalid Movie ID</div>;
+  }
 
   const handleLikeClick = async () => {
     if (!user || !movieId) return;
@@ -140,7 +140,11 @@ export default function MovieWatchPageComponent() {
               variant="outline"
               size="icon"
               onClick={handleLikeClick}
-              className={isLiked ? "bg-rose-600 text-primary-foreground" : "bg-rose-800/20"}
+              className={
+                isLiked
+                  ? "bg-rose-600 text-primary-foreground"
+                  : "bg-rose-800/20"
+              }
             >
               <ThumbsUp className="size-5" />
             </Button>
