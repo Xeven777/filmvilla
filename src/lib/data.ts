@@ -116,8 +116,8 @@ export const moviedata2 = [
 ];
 export const moviedata3 = [
   {
-    img: "https://static.toiimg.com/thumb/msid-112274362,imgsize-68790,width-400,resizemode-4/112274362.jpg ",
-    title: "Fast and Furius",
+    img: "https://static.toiimg.com/thumb/msid-112274362,imgsize-68790,width-400,resizemode-4/112274362.jpg",
+    title: "Fast and Furious",
     info: "Its a Series",
     rating: 4.3,
     category: "Action",

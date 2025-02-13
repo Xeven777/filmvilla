@@ -150,7 +150,7 @@ export default function ExplorePage() {
           </div>
           <MovieCarousel>
             {moviedata3.map((movie, i) => (
-              <TrailerCard key={i} movie={movie} />
+              <TrailerCard key={i} movie={movie} continueWatching />
             ))}
           </MovieCarousel>
         </motion.section>
