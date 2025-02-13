@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "motion/react";
-import { Search, Bell, Grid2X2, User2 } from "lucide-react";
+import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -11,11 +11,12 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { MovieCard } from "@/components/movie-card";
-import { TrailerCard } from "@/components/trailer-card";
 import { ContinueWatchingCard } from "@/components/continue-watching-card";
 import { MovieCarousel } from "@/components/movie-carousel";
 import { cn } from "@/lib/utils";
+import { moviedata, moviedata2, moviedata3 } from "@/lib/data";
+import MovieCard from "@/components/MovieCard";
+import { TrailerCard } from "@/components/trailer-card";
 
 const genres = [
   { id: "action", name: "Action", color: "bg-rose-500" },
@@ -63,8 +64,9 @@ export default function ExplorePage() {
   };
 
   return (
-    <div className="min-h-screen pt-12 bg-background p-6">
-      <h2 className="text-3xl md:text-8xl font-semibold tracking-tight text-center mx-auto bg-gradient-to-b from-foreground to-muted/50 via-foreground/70 bg-clip-text text-transparent w-fit py-4">
+    <div className="min-h-screen pt-12 bg-background p-6 relative">
+      <div className="dark:bg-primary/50 bg-primary/30 h-20 w-3/5 left-1/2 -translate-x-1/2 absolute top-40 blur-3xl" />
+      <h2 className="text-3xl md:text-8xl font-semibold tracking-tight text-center mx-auto bg-gradient-to-b from-foreground to-muted/50 via-foreground/70 bg-clip-text text-transparent w-fit py-4 z-10 relative">
         Explore
       </h2>
       <motion.div
@@ -73,15 +75,24 @@ export default function ExplorePage() {
         animate="show"
         className="space-y-8"
       >
-        <motion.div variants={item} className="glass rounded-3xl p-6 space-y-6">
-          <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
+        <motion.div
+          variants={item}
+          className="rounded-3xl p-6 space-y-6 max-w-5xl mx-auto"
+        >
+          <div className="flex flex-col md:flex-row gap-4 items-start md:items-center z-10 relative">
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-              <Input className="pl-10" placeholder="Search movies..." />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-muted-foreground z-10" />
+              <Input
+                className="pl-10 bg-background/20 backdrop-blur shadow-lg text-xl py-6"
+                placeholder="Search movies..."
+              />
             </div>
             <Popover>
               <PopoverTrigger asChild>
-                <Button variant="outline" className="min-w-[140px]">
+                <Button
+                  variant="outline"
+                  className="min-w-[140px] bg-transparent backdrop-blur-md "
+                >
                   {selectedSort.name}
                 </Button>
               </PopoverTrigger>
@@ -108,7 +119,7 @@ export default function ExplorePage() {
               <Badge
                 key={genre.id}
                 className={cn(
-                  "cursor-pointer transition-colors",
+                  "cursor-pointer transition-colors shadow text-foreground",
                   selectedGenres.includes(genre.id) ? genre.color : "bg-muted"
                 )}
                 onClick={() => toggleGenre(genre.id)}
@@ -124,24 +135,9 @@ export default function ExplorePage() {
             <h2 className="text-xl font-semibold">New trailers</h2>
           </div>
           <MovieCarousel>
-            <TrailerCard
-              title="Bheeshma Parvam"
-              duration="02:59"
-              views="2.3M"
-              image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/e4379e3065e4ba2bea8c4767a2dbf599-eRaxj9cXJbj9rploAaHSRGVvNIHcUk.webp"
-            />
-            <TrailerCard
-              title="Black Panther 2"
-              duration="03:29"
-              views="1.1M"
-              image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/e4379e3065e4ba2bea8c4767a2dbf599-eRaxj9cXJbj9rploAaHSRGVvNIHcUk.webp"
-            />
-            <TrailerCard
-              title="The Batman"
-              duration="02:45"
-              views="5.1M"
-              image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/e4379e3065e4ba2bea8c4767a2dbf599-eRaxj9cXJbj9rploAaHSRGVvNIHcUk.webp"
-            />
+            {moviedata2.map((movie, i) => (
+              <TrailerCard key={i} movie={movie} />
+            ))}
           </MovieCarousel>
         </motion.section>
 
@@ -153,56 +149,23 @@ export default function ExplorePage() {
             </Button>
           </div>
           <MovieCarousel>
-            <ContinueWatchingCard
-              title="Spider-man: No way home"
-              progress={75}
-              image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/e4379e3065e4ba2bea8c4767a2dbf599-eRaxj9cXJbj9rploAaHSRGVvNIHcUk.webp"
-            />
-            <ContinueWatchingCard
-              title="Minnal Murali"
-              progress={45}
-              image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/e4379e3065e4ba2bea8c4767a2dbf599-eRaxj9cXJbj9rploAaHSRGVvNIHcUk.webp"
-            />
-            <ContinueWatchingCard
-              title="The Dark Knight"
-              progress={30}
-              image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/e4379e3065e4ba2bea8c4767a2dbf599-eRaxj9cXJbj9rploAaHSRGVvNIHcUk.webp"
-            />
+            {moviedata3.map((movie, i) => (
+              <TrailerCard key={i} movie={movie} />
+            ))}
           </MovieCarousel>
         </motion.section>
 
         <motion.section variants={item} className="space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-xl font-semibold">Popular Movies 2021</h2>
+            <h2 className="text-xl font-semibold">Popular Movies 2025</h2>
             <Button variant="ghost" size="sm">
               All movies
             </Button>
           </div>
           <MovieCarousel>
-            <MovieCard
-              title="Nomadland"
-              category="Drama / Western"
-              rating={4.8}
-              image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/e4379e3065e4ba2bea8c4767a2dbf599-eRaxj9cXJbj9rploAaHSRGVvNIHcUk.webp"
-            />
-            <MovieCard
-              title="Space sweepers"
-              category="Sci-fi / Space / Drama"
-              rating={4.5}
-              image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/e4379e3065e4ba2bea8c4767a2dbf599-eRaxj9cXJbj9rploAaHSRGVvNIHcUk.webp"
-            />
-            <MovieCard
-              title="The suicide squad"
-              category="Action / Adventure"
-              rating={4.1}
-              image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/e4379e3065e4ba2bea8c4767a2dbf599-eRaxj9cXJbj9rploAaHSRGVvNIHcUk.webp"
-            />
-            <MovieCard
-              title="Dune"
-              category="Sci-fi / Adventure"
-              rating={4.7}
-              image="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/e4379e3065e4ba2bea8c4767a2dbf599-eRaxj9cXJbj9rploAaHSRGVvNIHcUk.webp"
-            />
+            {moviedata.map((movie, i) => (
+              <TrailerCard key={i} movie={movie} />
+            ))}
           </MovieCarousel>
         </motion.section>
       </motion.div>

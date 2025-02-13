@@ -1,17 +1,12 @@
 import Image from "next/image";
-import { Info, Play, Plus } from "lucide-react";
+import { Info, Play } from "lucide-react";
 
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Link from "next/link";
 import { moviedata, moviedata2, moviedata3 } from "@/lib/data";
+import MovieCard from "@/components/MovieCard";
 
 export default function Dashboard() {
   return (
@@ -53,41 +48,7 @@ export default function Dashboard() {
         <ScrollArea>
           <div className="flex space-x-4 pb-4">
             {moviedata.map((movie, i) => (
-              <HoverCard key={i}>
-                <HoverCardTrigger asChild>
-                  <Link href="/dashboard/watch">
-                    <Card className="w-[250px]">
-                      <CardContent className="p-0">
-                        <AspectRatio ratio={16 / 9}>
-                          <img
-                            src={movie.img}
-                            alt={movie.title}
-                            className="rounded-t-lg object-cover size-full"
-                          />
-                        </AspectRatio>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                </HoverCardTrigger>
-                <HoverCardContent className="w-80">
-                  <div className="flex justify-between space-x-4">
-                    <div className="space-y-1">
-                      <h4 className="text-sm font-semibold">{movie.title}</h4>
-                      <p className="text-sm">{movie.info}</p>
-                      <div className="flex items-center pt-2">
-                        <Button size="sm" className="mr-2">
-                          <Play className="mr-2 h-4 w-4" />
-                          Play
-                        </Button>
-                        <Button size="sm" variant="outline">
-                          <Plus className="mr-2 h-4 w-4" />
-                          My List
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </HoverCardContent>
-              </HoverCard>
+              <MovieCard key={i} movie={movie} />
             ))}
           </div>
           <ScrollBar orientation="horizontal" />
@@ -98,41 +59,7 @@ export default function Dashboard() {
         <ScrollArea>
           <div className="flex space-x-4 pb-4">
             {moviedata2.map((movie, i) => (
-              <HoverCard key={i}>
-                <HoverCardTrigger asChild>
-                  <Link href="/dashboard/watch">
-                    <Card className="w-[250px]">
-                      <CardContent className="p-0">
-                        <AspectRatio ratio={16 / 9}>
-                          <img
-                            src={movie.img}
-                            alt={movie.title}
-                            className="rounded-t-lg object-cover size-full"
-                          />
-                        </AspectRatio>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                </HoverCardTrigger>
-                <HoverCardContent className="w-80">
-                  <div className="flex justify-between space-x-4">
-                    <div className="space-y-1">
-                      <h4 className="text-sm font-semibold">{movie.title}</h4>
-                      <p className="text-sm">{movie.info}</p>
-                      <div className="flex items-center pt-2">
-                        <Button size="sm" className="mr-2">
-                          <Play className="mr-2 h-4 w-4" />
-                          Play
-                        </Button>
-                        <Button size="sm" variant="outline">
-                          <Plus className="mr-2 h-4 w-4" />
-                          My List
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </HoverCardContent>
-              </HoverCard>
+              <MovieCard key={i} movie={movie} />
             ))}
           </div>
           <ScrollBar orientation="horizontal" />
@@ -143,41 +70,7 @@ export default function Dashboard() {
         <ScrollArea>
           <div className="flex space-x-4 pb-4">
             {moviedata3.map((movie, i) => (
-              <HoverCard key={i}>
-                <HoverCardTrigger asChild>
-                  <Link href="/dashboard/watch">
-                    <Card className="w-[250px]">
-                      <CardContent className="p-0">
-                        <AspectRatio ratio={16 / 9}>
-                          <img
-                            src={movie.img}
-                            alt={movie.title}
-                            className="rounded-t-lg object-cover size-full"
-                          />
-                        </AspectRatio>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                </HoverCardTrigger>
-                <HoverCardContent className="w-80">
-                  <div className="flex justify-between space-x-4">
-                    <div className="space-y-1">
-                      <h4 className="text-sm font-semibold">{movie.title}</h4>
-                      <p className="text-sm">{movie.info}</p>
-                      <div className="flex items-center pt-2">
-                        <Button size="sm" className="mr-2">
-                          <Play className="mr-2 h-4 w-4" />
-                          Play
-                        </Button>
-                        <Button size="sm" variant="outline">
-                          <Plus className="mr-2 h-4 w-4" />
-                          My List
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </HoverCardContent>
-              </HoverCard>
+              <MovieCard key={i} movie={movie} />
             ))}
           </div>
           <ScrollBar orientation="horizontal" />
