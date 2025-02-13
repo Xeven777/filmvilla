@@ -1,19 +1,19 @@
 import prisma from "@/lib/prisma";
 import { Users } from "@prisma/client";
 
-export async function addUser(userData: Users) {
+export async function addUser(userData: any) {
   try {
     const user = await prisma.users.create({
       data: {
         clerkId: userData.id,
-        firstName: userData.firstName,
-        imgUrl: userData.imgUrl,
+        firstName: userData.firstName || "",
+        imgUrl: userData.imageUrl || "",
       },
     });
     return user;
   } catch (error) {
-    console.error(error);
-    return null;
+    console.error("Error creating user:", error);
+    throw error;
   }
 }
 
@@ -52,6 +52,13 @@ export async function likeMovie(clerkId: string, movieId: string) {
       throw new Error("User not found");
     }
 
+    const movieExists = await prisma.movies.findUnique({
+      where: { id: movieId },
+    });
+    if (!movieExists) {
+      throw new Error("Movie not found");
+    }
+
     const like = await prisma.movieLikes.create({
       data: {
         userId: user.id,
@@ -61,7 +68,7 @@ export async function likeMovie(clerkId: string, movieId: string) {
     return like;
   } catch (error) {
     console.error("Error liking movie:", error);
-    return null;
+    throw error;
   }
 }
 
@@ -81,7 +88,7 @@ export async function dislikeMovie(clerkId: string, movieId: string) {
     return like;
   } catch (error) {
     console.error("Error disliking movie:", error);
-    return null;
+    throw error;
   }
 }
 
@@ -113,7 +120,22 @@ export async function getLikedMovies(userId: string) {
         likes: true,
       },
     });
-    return user?.likes;
+
+    const likes = user?.likes;
+
+    if (!likes || likes.length === 0) return [];
+
+    const movies = await Promise.all(
+      likes.map(async (like) => {
+        return prisma.movies.findUnique({
+          where: { id: like.movieId },
+        });
+      })
+    );
+
+    return movies.filter(
+      (movie): movie is NonNullable<typeof movie> => movie !== null
+    );
   } catch (error) {
     console.error(error);
     return null;

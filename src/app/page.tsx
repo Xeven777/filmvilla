@@ -130,7 +130,7 @@ export default function LandingPage() {
       </main>
       <footer className="bg-background py-8 border-t">
         <div className="container px-4 md:px-6 text-center text-sm text-muted-foreground">
-          &copy; 2024 FilmVilla, Inc.
+          &copy; {new Date().getFullYear()} FilmVilla, Inc.
         </div>
       </footer>
     </div>

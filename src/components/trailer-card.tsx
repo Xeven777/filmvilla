@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { Movies } from "@prisma/client";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import Image from "next/image";
@@ -9,7 +10,7 @@ export function TrailerCard({
   movie,
   continueWatching,
 }: {
-  movie: { img: string; title: string; info: string };
+  movie: Movies | any;
   continueWatching?: boolean;
 }) {
   return (

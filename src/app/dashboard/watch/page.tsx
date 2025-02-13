@@ -1,20 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
-import {
-  ChevronLeft,
-  Heart,
-  MoreHorizontal,
-  Play,
-  Plus,
-  Share2,
-  ThumbsUp,
-  Volume2,
-} from "lucide-react";
+import { Heart, Play, Plus, Star, ThumbsUp, Volume2 } from "lucide-react";
 import Link from "next/link";
 
 export default function MovieWatchPageComponent() {
@@ -25,24 +16,7 @@ export default function MovieWatchPageComponent() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between p-4 bg-gradient-to-b from-black to-transparent">
-        <Link href="/dashboard">
-          <Button variant="ghost" className="text-white">
-            <ChevronLeft className="mr-2 h-4 w-4" />
-            Back to Browse
-          </Button>
-        </Link>
-        <div className="flex items-center space-x-2">
-          <Button variant="ghost" size="icon">
-            <Share2 className="h-5 w-5" />
-          </Button>
-          <Button variant="ghost" size="icon">
-            <MoreHorizontal className="h-5 w-5" />
-          </Button>
-        </div>
-      </header> */}
-
+    <div className="min-h-screen">
       <main className="">
         {/* Video Player */}
         <div className="relative aspect-video bg-zinc-900">
@@ -70,7 +44,7 @@ export default function MovieWatchPageComponent() {
           <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <Button variant="outline" size="icon">
-                <Volume2 className="h-4 w-4" />
+                <Volume2 className="size-4" />
               </Button>
               <span className="text-sm">1:23 / 2:15:00</span>
             </div>
@@ -84,7 +58,7 @@ export default function MovieWatchPageComponent() {
         <div className="max-w-4xl mx-auto px-4 py-8">
           <h1 className="text-4xl font-bold mb-2">Interstellar</h1>
           <div className="flex items-center space-x-4 mb-4">
-            <span className="text-sm text-zinc-400">2014</span>
+            <span className="text-sm text-muted-foreground">2014</span>
             <span className="text-sm text-zinc-400">PG-13</span>
             <span className="text-sm text-zinc-400">2h 49min</span>
             <span className="text-sm text-green-500">98% Match</span>
@@ -95,15 +69,15 @@ export default function MovieWatchPageComponent() {
           </p>
           <div className="flex items-center space-x-4 mb-8">
             <Button>
-              <Play className="mr-2 h-4 w-4" />
+              <Play className="mr-2 size-4" />
               Resume
             </Button>
             <Button variant="outline">
-              <Plus className="mr-2 h-4 w-4" />
+              <Plus className="mr-2 size-4" />
               My List
             </Button>
             <Button variant="outline" size="icon">
-              <ThumbsUp className="h-5 w-5" />
+              <ThumbsUp className="size-5" />
             </Button>
           </div>
           <div className="grid grid-cols-2 gap-8">
@@ -151,25 +125,36 @@ export default function MovieWatchPageComponent() {
         </div>
       </main>
 
-      <footer className="mt-auto py-6 px-4 bg-zinc-900">
+      <footer className="mt-auto py-6 px-4 bg-muted">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center">
           <div className="flex space-x-4 mb-4 md:mb-0">
-            <Button variant="link" className="text-zinc-400 hover:text-white">
+            <Button
+              variant="link"
+              className="text-muted-foreground hover:underline"
+            >
               Audio and Subtitles
             </Button>
-            <Button variant="link" className="text-zinc-400 hover:text-white">
+            <Button
+              variant="link"
+              className="text-muted-foreground hover:underline"
+            >
               Help Center
             </Button>
-            <Button variant="link" className="text-zinc-400 hover:text-white">
+            <Button
+              variant="link"
+              className="text-muted-foreground hover:underline"
+            >
               Gift Cards
             </Button>
           </div>
           <div className="flex items-center space-x-4">
             <Button variant="outline" size="sm">
-              <Heart className="mr-2 h-4 w-4" />
-              Rate
+              <Star className="mr-2 size-4 stroke-none fill-yellow-500" />
+              Star
             </Button>
-            <span className="text-zinc-400">© 2024 FILMFLIX</span>
+            <span className="text-muted-foreground">
+              © {new Date().getFullYear()} FILMFLIX
+            </span>
           </div>
         </div>
       </footer>

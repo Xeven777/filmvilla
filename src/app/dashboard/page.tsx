@@ -42,12 +42,12 @@ export default async function Dashboard() {
             <div className="flex gap-4">
               <Link href={"/dashboard/watch/movie"}>
                 <Button size="lg">
-                  <Play className="mr-2 h-4 w-4" />
+                  <Play className="mr-2 size-4" />
                   Play
                 </Button>
               </Link>
               <Button size="lg" variant="outline">
-                <Info className="mr-2 h-4 w-4" />
+                <Info className="mr-2 size-4" />
                 More Info
               </Button>
             </div>

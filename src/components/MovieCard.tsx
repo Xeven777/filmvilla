@@ -8,7 +8,7 @@ import { Button } from "./ui/button";
 import { Heart, Play } from "lucide-react";
 import { useUser } from "@clerk/nextjs";
 import { Movies } from "@prisma/client";
-import { revalidateTag } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 
 const MovieCard = ({ movie }: { movie: Movies }) => {
   const { user } = useUser();
@@ -22,7 +22,6 @@ const MovieCard = ({ movie }: { movie: Movies }) => {
         const response = await fetch(
           `/api/movies/like?movieId=${movie.id}&userId=${user.id}`,
           {
-            cache: "force-cache",
             next: {
               tags: ["likes"],
             },
@@ -40,7 +39,6 @@ const MovieCard = ({ movie }: { movie: Movies }) => {
   const handleLike = async () => {
     if (!user) return;
     setIsLoading(true);
-    console.log({ movie, user, isLiked });
     try {
       const response = await fetch("/api/movies/like", {
         method: "POST",
@@ -54,20 +52,26 @@ const MovieCard = ({ movie }: { movie: Movies }) => {
         }),
       });
 
-      if (response.ok) {
-        setIsLiked(!isLiked);
-        revalidateTag("likes");
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || "Failed to update like status");
       }
+
+      setIsLiked(!isLiked);
+      revalidateTag("likes");
+      revalidatePath("/dashboard", "layout");
     } catch (error) {
       console.error("Error:", error);
+      // You might want to show a toast or error message to the user here
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
-        <Link href="/dashboard/watch">
+        <Link href={`/dashboard/watch?m=${movie.id}`}>
           <Card className="w-[350px] overflow-hidden">
             <CardContent className="p-0">
               <AspectRatio ratio={16 / 9}>
@@ -88,7 +92,7 @@ const MovieCard = ({ movie }: { movie: Movies }) => {
             <p className="text-sm">{movie.info}</p>
             <div className="flex items-center pt-2">
               <Button size="sm" className="mr-2">
-                <Play className="mr-2 h-4 w-4" />
+                <Play className="mr-2 size-4" />
                 Play
               </Button>
               <Button
@@ -99,7 +103,7 @@ const MovieCard = ({ movie }: { movie: Movies }) => {
                 disabled={isLoading}
               >
                 <Heart
-                  className={`mr-2 h-4 w-4 ${
+                  className={`mr-2 size-4 ${
                     isLiked ? "fill-rose-500 stroke-none" : ""
                   }`}
                 />

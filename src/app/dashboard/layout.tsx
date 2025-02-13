@@ -43,7 +43,7 @@ export default function RootLayout({
                 href="/dashboard"
                 className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
               >
-                <ClapperboardIcon className="h-4 w-4 transition-all group-hover:scale-110" />
+                <ClapperboardIcon className="size-4 transition-all group-hover:scale-110" />
                 <span className="sr-only">FilmVilla</span>
               </Link>
               <Tooltip>
@@ -52,7 +52,7 @@ export default function RootLayout({
                     href="/dashboard"
                     className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                   >
-                    <Home className="h-5 w-5" />
+                    <Home className="size-5" />
                     <span className="sr-only">Home</span>
                   </Link>
                 </TooltipTrigger>
@@ -64,7 +64,7 @@ export default function RootLayout({
                     href="/dashboard/explore"
                     className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                   >
-                    <LineChart className="h-5 w-5" />
+                    <LineChart className="size-5" />
                     <span className="sr-only">Movies</span>
                   </Link>
                 </TooltipTrigger>
@@ -76,7 +76,7 @@ export default function RootLayout({
                     href="/dashboard/profile"
                     className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                   >
-                    <UserCircleIcon className="h-5 w-5" />
+                    <UserCircleIcon className="size-5" />
                     <span className="sr-only">Profile</span>
                   </Link>
                 </TooltipTrigger>
@@ -90,7 +90,7 @@ export default function RootLayout({
                     href="#"
                     className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                   >
-                    <Settings className="h-5 w-5" />
+                    <Settings className="size-5" />
                     <span className="sr-only">Settings</span>
                   </Link>
                 </TooltipTrigger>
@@ -107,7 +107,7 @@ export default function RootLayout({
                     variant="outline"
                     className="shrink-0 sm:hidden"
                   >
-                    <ChevronRight className="h-5 w-5" />
+                    <ChevronRight className="size-5" />
                     <span className="sr-only">Toggle Menu</span>
                   </Button>
                 </SheetTrigger>
@@ -117,28 +117,28 @@ export default function RootLayout({
                       href="#"
                       className="flex items-center gap-2 text-lg font-semibold"
                     >
-                      <Package2 className="h-5 w-5" />
+                      <Package2 className="size-5" />
                       FilmVilla
                     </Link>
                     <Link
                       href="#"
                       className="flex items-center gap-2 text-lg font-semibold"
                     >
-                      <Home className="h-5 w-5" />
+                      <Home className="size-5" />
                       Home
                     </Link>
                     <Link
                       href="#"
                       className="flex items-center gap-2 text-lg font-semibold"
                     >
-                      <Users2 className="h-5 w-5" />
+                      <Users2 className="size-5" />
                       TV Shows
                     </Link>
                     <Link
                       href="#"
                       className="flex items-center gap-2 text-lg font-semibold"
                     >
-                      <LineChart className="h-5 w-5" />
+                      <LineChart className="size-5" />
                       Movies
                     </Link>
                   </nav>
@@ -147,7 +147,7 @@ export default function RootLayout({
               <div className="flex w-11/12 items-center gap-4 p-2 fixed top-0">
                 <form className="hidden flex-1 sm:block">
                   <div className="relative">
-                    <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+                    <Search className="absolute left-2.5 top-2.5 size-4 text-muted-foreground" />
                     <Input
                       type="search"
                       placeholder="Search..."

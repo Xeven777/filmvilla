@@ -1,4 +1,4 @@
-import { Clapperboard, DotIcon, Settings } from "lucide-react";
+import { Clapperboard, Settings } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,13 +11,12 @@ import {
 } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { currentUser } from "@clerk/nextjs/server";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { redirect } from "next/navigation";
-import { UserButton, UserProfile } from "@clerk/nextjs";
 import Link from "next/link";
 import { MovieCarousel } from "@/components/movie-carousel";
-import { moviedata3 } from "@/lib/data";
+import { moviedata, moviedata3 } from "@/lib/data";
 import { TrailerCard } from "@/components/trailer-card";
+import { getLikedMovies } from "@/action/db";
 
 export default async function Dashboard() {
   const userData = await currentUser();
@@ -25,9 +24,12 @@ export default async function Dashboard() {
   if (!userData) {
     redirect("/");
   }
+
+  const likedMovies = await getLikedMovies(userData.id);
+
   return (
-    <div className="flex flex-col min-h-screen pt-10">
-      {/* Main Content */}
+    <div className="flex flex-col min-h-screen pt-10 relative overflow-x-hidden">
+      <div className="dark:bg-primary/50 bg-primary/30 h-20 w-3/5 left-1/2 absolute -top-16 blur-3xl" />
       <main className="flex-grow px-6 py-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold mb-6">
@@ -111,26 +113,14 @@ export default async function Dashboard() {
           </section>
 
           {/* Recommended for You */}
-          {/* <section>
-            <h3 className="text-2xl font-semibold mb-4">Recommended for You</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
-                <Card key={i} className="bg-zinc-900 text-foreground">
-                  <CardContent className="p-0">
-                    <img
-                      src={`/placeholder.svg?height=200&width=150`}
-                      alt={`Recommended Movie ${i}`}
-                      className="w-full h-[200px] object-cover rounded-t-md"
-                    />
-                    <div className="p-4">
-                      <h4 className="font-semibold">Recommended Title {i}</h4>
-                      <p className="text-sm text-muted-foreground">Genre</p>
-                    </div>
-                  </CardContent>
-                </Card>
+          <section className="my-20">
+            <h3 className="text-2xl font-semibold mb-4">Liked Movies ❤️</h3>
+            <MovieCarousel>
+              {likedMovies?.map((movie, i) => (
+                <TrailerCard key={i} movie={movie} />
               ))}
-            </div>
-          </section> */}
+            </MovieCarousel>
+          </section>
         </div>
       </main>
 
@@ -165,7 +155,7 @@ export default async function Dashboard() {
           </div>
           <div className="flex items-center space-x-4">
             <span className="text-muted-foreground">© 2024 FILMFLIX</span>
-            <Settings className="h-5 w-5 text-muted-foreground" />
+            <Settings className="size-5 text-muted-foreground" />
           </div>
         </div>
       </footer>
