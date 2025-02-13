@@ -73,14 +73,14 @@ export default function RootLayout({
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
-                    href="#"
+                    href="/dashboard/explore"
                     className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                   >
                     <LineChart className="h-5 w-5" />
                     <span className="sr-only">Movies</span>
                   </Link>
                 </TooltipTrigger>
-                <TooltipContent side="right">Movies</TooltipContent>
+                <TooltipContent side="right">Explore</TooltipContent>
               </Tooltip>
             </nav>
             <nav className="mt-auto flex flex-col items-center gap-4 px-2 sm:py-5">
