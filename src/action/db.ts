@@ -1,5 +1,5 @@
+"use server";
 import prisma from "@/lib/prisma";
-import { Users } from "@prisma/client";
 
 export async function addUser(userData: any) {
   try {
@@ -146,6 +146,18 @@ export async function getAllMovies() {
   try {
     const movies = await prisma.movies.findMany();
     return movies;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
+export async function getMovieById(id: string) {
+  try {
+    const movie = await prisma.movies.findUnique({
+      where: { id },
+    });
+    return movie;
   } catch (error) {
     console.error(error);
     return null;
