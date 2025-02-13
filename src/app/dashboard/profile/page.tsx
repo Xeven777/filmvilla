@@ -15,6 +15,9 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { redirect } from "next/navigation";
 import { UserButton, UserProfile } from "@clerk/nextjs";
 import Link from "next/link";
+import { MovieCarousel } from "@/components/movie-carousel";
+import { moviedata3 } from "@/lib/data";
+import { TrailerCard } from "@/components/trailer-card";
 
 export default async function Dashboard() {
   const userData = await currentUser();
@@ -100,35 +103,15 @@ export default async function Dashboard() {
           {/* Continue Watching */}
           <section className="mb-8">
             <h3 className="text-2xl font-semibold mb-4">Continue Watching</h3>
-            <ScrollArea className="w-full whitespace-nowrap rounded-md">
-              <div className="flex space-x-4 pb-4">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <Card
-                    key={i}
-                    className="w-[250px] bg-zinc-900 text-foreground"
-                  >
-                    <CardContent className="p-0">
-                      <img
-                        src={`/placeholder.svg?height=141&width=250`}
-                        alt={`Movie ${i}`}
-                        className="w-full h-[141px] object-cover rounded-t-md"
-                      />
-                      <div className="p-4">
-                        <h4 className="font-semibold">Movie Title {i}</h4>
-                        <p className="text-sm text-muted-foreground">
-                          Episode {i}
-                        </p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-              <ScrollBar orientation="horizontal" />
-            </ScrollArea>
+            <MovieCarousel>
+              {moviedata3.map((movie, i) => (
+                <TrailerCard key={i} movie={movie} continueWatching />
+              ))}
+            </MovieCarousel>
           </section>
 
           {/* Recommended for You */}
-          <section>
+          {/* <section>
             <h3 className="text-2xl font-semibold mb-4">Recommended for You</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
@@ -147,7 +130,7 @@ export default async function Dashboard() {
                 </Card>
               ))}
             </div>
-          </section>
+          </section> */}
         </div>
       </main>
 

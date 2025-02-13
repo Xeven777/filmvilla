@@ -1,14 +1,25 @@
 import Image from "next/image";
-import { Info, Play } from "lucide-react";
-
+import { Info, Loader, Play } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Link from "next/link";
-import { moviedata, moviedata2, moviedata3 } from "@/lib/data";
 import MovieCard from "@/components/MovieCard";
+import { getAllMovies } from "@/action/db";
 
-export default function Dashboard() {
+export default async function Dashboard() {
+  const movieData = await getAllMovies();
+
+  if (!movieData) {
+    return (
+      <div className="w-full min-h-60 py-32">
+        <Loader
+          className="m-auto animate-spin ease-in-out text-primary"
+          size={60}
+        />
+      </div>
+    );
+  }
   return (
     <main className="flex-1">
       <section className="relative">
@@ -47,7 +58,7 @@ export default function Dashboard() {
         <h2 className="mb-4 text-2xl font-semibold">Trending Now</h2>
         <ScrollArea>
           <div className="flex space-x-4 pb-4">
-            {moviedata.map((movie, i) => (
+            {movieData?.map((movie, i) => (
               <MovieCard key={i} movie={movie} />
             ))}
           </div>
@@ -58,7 +69,7 @@ export default function Dashboard() {
         <h2 className="mb-4 text-2xl font-semibold">New Release</h2>
         <ScrollArea>
           <div className="flex space-x-4 pb-4">
-            {moviedata2.map((movie, i) => (
+            {movieData?.map((movie, i) => (
               <MovieCard key={i} movie={movie} />
             ))}
           </div>
@@ -69,7 +80,7 @@ export default function Dashboard() {
         <h2 className="mb-4 text-2xl font-semibold">Your favorites </h2>
         <ScrollArea>
           <div className="flex space-x-4 pb-4">
-            {moviedata3.map((movie, i) => (
+            {movieData?.map((movie, i) => (
               <MovieCard key={i} movie={movie} />
             ))}
           </div>
