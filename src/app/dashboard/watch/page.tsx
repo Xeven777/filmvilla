@@ -1,5 +1,6 @@
 "use client";
 
+import { cache } from "react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
@@ -28,7 +29,7 @@ export default function MovieWatchPageComponent() {
   const { user } = useUser();
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = cache(async () => {
       if (movieId && user) {
         const [movieData, likeStatus] = await Promise.all([
           getMovieById(movieId),
@@ -37,7 +38,7 @@ export default function MovieWatchPageComponent() {
         setMovieDetails(movieData!);
         setIsLiked(likeStatus);
       }
-    };
+    });
 
     try {
       fetchData();
@@ -46,8 +47,8 @@ export default function MovieWatchPageComponent() {
     }
   }, [movieId, user]);
 
-  if (!movieId || !movieDetails) {
-    return <div>Invalid Movie ID</div>;
+  if (!movieId) {
+    return <div className="pt-20 text-center text-5xl">Invalid Movie ID</div>;
   }
 
   const handleLikeClick = async () => {
@@ -79,7 +80,7 @@ export default function MovieWatchPageComponent() {
             className="w-full h-full object-cover aspect-video"
           />
           <div className="absolute inset-0 flex items-center justify-center">
-            <Link href={"/dashboard/watch/movie"}>
+            <Link href={"/dashboard/watch/movie?m=" + movieId}>
               <Button
                 variant="outline"
                 size="icon"
@@ -128,10 +129,12 @@ export default function MovieWatchPageComponent() {
           </div>
           <p className="mb-6">{movieDetails?.info || "..."}</p>
           <div className="flex items-center space-x-4 mb-10">
-            <Button>
-              <Play className="mr-2 size-4" />
-              Resume
-            </Button>
+            <Link href={"/dashboard/watch/movie?m=" + movieId}>
+              <Button>
+                <Play className="mr-2 size-4" />
+                Resume
+              </Button>
+            </Link>
             <Button variant="outline">
               <Plus className="mr-2 size-4" />
               My List

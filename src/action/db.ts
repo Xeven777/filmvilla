@@ -1,5 +1,6 @@
 "use server";
 import prisma from "@/lib/prisma";
+import { cache } from "react";
 
 export async function addUser(userData: any) {
   try {
@@ -17,7 +18,7 @@ export async function addUser(userData: any) {
   }
 }
 
-export async function getUserById(id: string) {
+export const getUserById = cache(async (id: string) => {
   try {
     const user = await prisma.users.findUnique({
       where: {
@@ -29,9 +30,9 @@ export async function getUserById(id: string) {
     console.error(error);
     return null;
   }
-}
+});
 
-export async function getUserByClerkId(clerkId: string) {
+export const getUserByClerkId = cache(async (clerkId: string) => {
   try {
     const user = await prisma.users.findUnique({
       where: {
@@ -43,7 +44,7 @@ export async function getUserByClerkId(clerkId: string) {
     console.error("Error getting user:", error);
     return null;
   }
-}
+});
 
 export async function likeMovie(clerkId: string, movieId: string) {
   try {
@@ -142,7 +143,7 @@ export async function getLikedMovies(userId: string) {
   }
 }
 
-export async function getAllMovies() {
+export const getAllMovies = cache(async () => {
   try {
     const movies = await prisma.movies.findMany();
     return movies;
@@ -150,9 +151,9 @@ export async function getAllMovies() {
     console.error(error);
     return null;
   }
-}
+});
 
-export async function getMovieById(id: string) {
+export const getMovieById = cache(async (id: string) => {
   try {
     const movie = await prisma.movies.findUnique({
       where: { id },
@@ -162,4 +163,4 @@ export async function getMovieById(id: string) {
     console.error(error);
     return null;
   }
-}
+});
