@@ -14,7 +14,7 @@ import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { MovieCarousel } from "@/components/movie-carousel";
-import { moviedata, moviedata3 } from "@/lib/data";
+import { moviedata3 } from "@/lib/data";
 import { TrailerCard } from "@/components/trailer-card";
 import { getLikedMovies } from "@/action/db";
 
@@ -119,6 +119,11 @@ export default async function Dashboard() {
               {likedMovies?.map((movie, i) => (
                 <TrailerCard key={i} movie={movie} />
               ))}
+              {likedMovies?.length === 0 && (
+                <div className="text-muted-foreground mt-4 w-full">
+                  No liked movies found. Like some movies to see them here.
+                </div>
+              )}
             </MovieCarousel>
           </section>
         </div>

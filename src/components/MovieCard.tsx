@@ -85,7 +85,14 @@ const MovieCard = ({ movie }: { movie: Movies }) => {
           </Card>
         </Link>
       </HoverCardTrigger>
-      <HoverCardContent className="w-80">
+      <HoverCardContent className="w-80 relative overflow-hidden">
+        <div>
+          {movie.rating && (
+            <span className="absolute top-0 right-0 bg-gradient-to-r from-yellow-600 to-yellow-600 via-amber-200 text-black text-sm font-semibold bg-[length:200%_200%] animate-bg-pan px-3 rounded-bl-lg">
+              {movie.rating}
+            </span>
+          )}
+        </div>
         <div className="flex justify-between space-x-4">
           <div className="space-y-1">
             <h4 className="text-sm font-semibold">{movie.title}</h4>

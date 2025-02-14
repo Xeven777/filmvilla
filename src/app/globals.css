@@ -76,3 +76,16 @@
   background-color: hsl(var(--border));
   border-radius: 6px;
 }
+
+@keyframes bg-pan {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.animate-bg-pan {
+  animation: bg-pan 4s ease-in infinite;
+}

@@ -20,8 +20,13 @@ export default async function Dashboard() {
       </div>
     );
   }
+
+  const movieList1 = movieData?.slice(0, 10);
+  const movieList2 = movieData?.slice(10, 20);
+  const movieList3 = movieData?.slice(20, 30);
+
   return (
-    <main className="flex-1">
+    <main className="flex-1 pb-20">
       <section className="relative">
         <AspectRatio ratio={16 / 9}>
           <Image
@@ -31,7 +36,7 @@ export default async function Dashboard() {
             fill
           />
         </AspectRatio>
-        <div className="absolute inset-0 flex items-center bg-gradient-to-r from-background/80 p-6 to-transparent">
+        <div className="absolute inset-0 flex items-center bg-gradient-to-r from-background/85 p-6 md:p-10 to-transparent">
           <div className="max-w-lg">
             <h1 className="mb-4 text-4xl font-bold">Stranger Things (S2)</h1>
             <p className="mb-4 text-lg">
@@ -40,7 +45,7 @@ export default async function Dashboard() {
               the children unravel a series of extraordinary mysteries.
             </p>
             <div className="flex gap-4">
-              <Link href={"/dashboard/watch/movie"}>
+              <Link href={"/dashboard/watch?m=67aef3d11554e9e940033df8"}>
                 <Button size="lg">
                   <Play className="mr-2 size-4" />
                   Play
@@ -58,7 +63,7 @@ export default async function Dashboard() {
         <h2 className="mb-4 text-2xl font-semibold">Trending Now</h2>
         <ScrollArea>
           <div className="flex space-x-4 pb-4">
-            {movieData?.map((movie, i) => (
+            {movieList1?.map((movie, i) => (
               <MovieCard key={i} movie={movie} />
             ))}
           </div>
@@ -69,7 +74,7 @@ export default async function Dashboard() {
         <h2 className="mb-4 text-2xl font-semibold">New Release</h2>
         <ScrollArea>
           <div className="flex space-x-4 pb-4">
-            {movieData?.map((movie, i) => (
+            {movieList2?.map((movie, i) => (
               <MovieCard key={i} movie={movie} />
             ))}
           </div>
@@ -80,7 +85,7 @@ export default async function Dashboard() {
         <h2 className="mb-4 text-2xl font-semibold">Your favorites </h2>
         <ScrollArea>
           <div className="flex space-x-4 pb-4">
-            {movieData?.map((movie, i) => (
+            {movieList3?.map((movie, i) => (
               <MovieCard key={i} movie={movie} />
             ))}
           </div>
