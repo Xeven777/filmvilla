@@ -7,6 +7,8 @@ import Link from "next/link";
 import MovieCard from "@/components/MovieCard";
 import { getAllMovies } from "@/action/db";
 
+export const revalidate = 600;
+
 export default async function Dashboard() {
   const movieData = await getAllMovies();
 
