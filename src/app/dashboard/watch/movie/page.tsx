@@ -39,9 +39,9 @@ export default async function page(props: { searchParams: SearchParams }) {
   if (!movieDetails) {
     return <div className="pt-20 text-center text-5xl">Invalid Movie ID</div>;
   }
-  console.log(movieDetails);
+
   const embedLink = convertToEmbedLink(movieDetails.videoUrl);
-  console.log(embedLink);
+
   if (!embedLink) {
     return <div className="pt-20 text-center text-5xl">Invalid Video URL</div>;
   }

@@ -2,6 +2,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
+  ArrowLeft,
   ChevronRight,
   ClapperboardIcon,
   Home,
@@ -14,7 +15,6 @@ import {
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import {
   Tooltip,
@@ -144,17 +144,14 @@ export default function RootLayout({
                   </nav>
                 </SheetContent>
               </Sheet>
-              <div className="flex w-11/12 items-center gap-4 p-2 fixed top-0">
-                <form className="hidden flex-1 sm:block">
-                  <div className="relative">
-                    <Search className="absolute left-2.5 top-2.5 size-4 text-muted-foreground" />
-                    <Input
-                      type="search"
-                      placeholder="Search..."
-                      className="w-full bg-background/20 backdrop-blur border-border/10 shadow-sm pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px]"
-                    />
-                  </div>
-                </form>
+              <div className="flex w-11/12 items-center justify-between gap-4 p-2 fixed top-0">
+                <Link
+                  href="/dashboard"
+                  className="flex items-center gap-2 text-lg font-semibold"
+                >
+                  <ArrowLeft className="size-5" />
+                </Link>
+
                 <div className="flex items-center gap-4">
                   <ThemeTogglebutton />
                   <UserButton />
