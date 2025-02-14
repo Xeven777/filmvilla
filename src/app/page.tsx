@@ -96,7 +96,11 @@ export default function LandingPage() {
             />
           </div>
         </section>
-        <section className="w-full py-24 md:py-32 lg:py-40">
+
+        <div className="h-0.5 w-3/5 bg-gradient-to-r from-transparent via-primary/80 to-transparent mx-auto my-8" />
+        <section className="w-full py-24 md:py-32 lg:py-40 relative overflow-hidden">
+          <div className="dark:bg-primary/40 bg-primary/30 h-20 w-1/5 -left-20 absolute bottom-10 blur-3xl" />
+          <div className="dark:bg-primary/40 bg-primary/30 h-20 w-1/5 -right-20 absolute bottom-10 blur-3xl" />
           <div className="container px-4 md:px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex flex-col items-center text-center">
               <DownloadIcon className="h-16 w-auto mb-4" />
@@ -128,10 +132,16 @@ export default function LandingPage() {
           </div>
         </section>
       </main>
-      <footer className="bg-background py-8 border-t">
-        <div className="container px-4 md:px-6 text-center text-sm text-muted-foreground">
+      <footer className="bg-background py-8 border-t text-sm text-muted-foreground flex gap-10 items-center justify-center">
+        <div className="px-4 md:px-6 text-center ">
           &copy; {new Date().getFullYear()} FilmVilla, Inc.
         </div>
+        <a
+          href="https://github.com/Xeven777/filmvilla"
+          className="hover:text-primary hover:underline"
+        >
+          🌟Star on Github
+        </a>
       </footer>
     </div>
   );
