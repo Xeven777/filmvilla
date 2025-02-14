@@ -96,12 +96,14 @@ const MovieCard = ({ movie }: { movie: Movies }) => {
         <div className="flex justify-between space-x-4">
           <div className="space-y-1">
             <h4 className="text-sm font-semibold">{movie.title}</h4>
-            <p className="text-sm">{movie.info}</p>
+            <p className="text-sm line-clamp-4">{movie.info}</p>
             <div className="flex items-center pt-2">
-              <Button size="sm" className="mr-2">
-                <Play className="mr-2 size-4" />
-                Play
-              </Button>
+              <Link href={`/dashboard/watch/movie?m=${movie.id}`}>
+                <Button size="sm" className="mr-2">
+                  <Play className="mr-2 size-4" />
+                  Play
+                </Button>
+              </Link>
               <Button
                 size="sm"
                 variant="outline"

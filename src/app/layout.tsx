@@ -11,7 +11,7 @@ const font = Cabin({
 
 export const metadata: Metadata = {
   title: "FilmVilla",
-  description: "Movie App",
+  description: "Watch your favorite movies and TV shows online!",
 };
 
 export default function RootLayout({

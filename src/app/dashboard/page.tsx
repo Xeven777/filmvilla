@@ -20,10 +20,11 @@ export default async function Dashboard() {
       </div>
     );
   }
+  const noOfMovies = movieData.length;
 
-  const movieList1 = movieData?.slice(0, 10);
-  const movieList2 = movieData?.slice(10, 20);
-  const movieList3 = movieData?.slice(20, 30);
+  const movieList1 = movieData?.slice(0, noOfMovies / 3);
+  const movieList2 = movieData?.slice(noOfMovies / 3, (noOfMovies / 3) * 2);
+  const movieList3 = movieData?.slice((noOfMovies / 3) * 2, noOfMovies);
 
   return (
     <main className="flex-1 pb-20">
@@ -45,19 +46,32 @@ export default async function Dashboard() {
               the children unravel a series of extraordinary mysteries.
             </p>
             <div className="flex gap-4">
-              <Link href={"/dashboard/watch?m=67aef3d11554e9e940033df8"}>
+              <Link href={"/dashboard/watch/movie?m=67aef3d11554e9e940033df8"}>
                 <Button size="lg">
                   <Play className="mr-2 size-4" />
                   Play
                 </Button>
               </Link>
-              <Button size="lg" variant="outline">
-                <Info className="mr-2 size-4" />
-                More Info
-              </Button>
+              <Link href={"/dashboard/watch?m=67aef3d11554e9e940033df8"}>
+                <Button size="lg" variant="outline">
+                  <Info className="mr-2 size-4" />
+                  More Info
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
+      </section>
+      <section className="p-6">
+        <h2 className="mb-4 text-2xl font-semibold">Your favorites </h2>
+        <ScrollArea>
+          <div className="flex space-x-4 pb-4">
+            {movieList3?.map((movie, i) => (
+              <MovieCard key={i} movie={movie} />
+            ))}
+          </div>
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
       </section>
       <section className="p-6">
         <h2 className="mb-4 text-2xl font-semibold">Trending Now</h2>
@@ -75,17 +89,6 @@ export default async function Dashboard() {
         <ScrollArea>
           <div className="flex space-x-4 pb-4">
             {movieList2?.map((movie, i) => (
-              <MovieCard key={i} movie={movie} />
-            ))}
-          </div>
-          <ScrollBar orientation="horizontal" />
-        </ScrollArea>
-      </section>
-      <section className="p-6">
-        <h2 className="mb-4 text-2xl font-semibold">Your favorites </h2>
-        <ScrollArea>
-          <div className="flex space-x-4 pb-4">
-            {movieList3?.map((movie, i) => (
               <MovieCard key={i} movie={movie} />
             ))}
           </div>
