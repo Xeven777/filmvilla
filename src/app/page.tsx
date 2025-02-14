@@ -42,7 +42,7 @@ export default function LandingPage() {
             alt="bg"
             width={1200}
             height={800}
-            className="absolute w-screen h-screen -z-20 inset-0 filter brightness-75"
+            className="absolute w-screen h-screen object-cover -z-20 inset-0 filter brightness-75"
           />
           <div className="absolute w-full h-screen inset-0 -z-10 bg-gradient-to-b from-transparent to-black"></div>
           <div className="container px-4 md:px-6 flex flex-col items-center text-center">

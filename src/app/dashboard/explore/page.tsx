@@ -77,7 +77,7 @@ export default function ExplorePage() {
       >
         <motion.div
           variants={item}
-          className="rounded-3xl p-6 space-y-6 max-w-5xl mx-auto"
+          className="rounded-3xl py-6 md:p-6 space-y-6 max-w-5xl mx-auto"
         >
           <div className="flex flex-col md:flex-row gap-4 items-start md:items-center z-10 relative">
             <div className="relative flex-1">
@@ -91,7 +91,7 @@ export default function ExplorePage() {
               <PopoverTrigger asChild>
                 <Button
                   variant="outline"
-                  className="min-w-[140px] bg-transparent backdrop-blur-md "
+                  className="md:min-w-[140px] bg-transparent backdrop-blur-md "
                 >
                   {selectedSort.name}
                 </Button>

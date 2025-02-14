@@ -84,9 +84,9 @@ export default function MovieWatchPageComponent() {
               <Button
                 variant="outline"
                 size="icon"
-                className="w-16 h-16 rounded-full"
+                className="size-10 md:size-16 rounded-full"
               >
-                <Play className="h-8 w-8" />
+                <Play className="size-4 md:size-8" />
               </Button>
             </Link>
           </div>
@@ -109,7 +109,7 @@ export default function MovieWatchPageComponent() {
 
         {/* Movie Details */}
         <div className="max-w-4xl mx-auto px-4 py-8">
-          <h1 className="text-4xl md:text-5xl mb-4 font-bold tracking-tight">
+          <h1 className="text-3xl md:text-5xl mb-4 font-bold tracking-tight">
             {movieDetails?.title || "Movie Title"}
           </h1>
           <div className="flex items-center space-x-4 mb-4">

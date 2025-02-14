@@ -8,7 +8,6 @@ import {
   Home,
   LineChart,
   Package2,
-  Search,
   Settings,
   UserCircleIcon,
   Users2,
@@ -105,49 +104,52 @@ export default function RootLayout({
                   <Button
                     size="icon"
                     variant="outline"
-                    className="shrink-0 sm:hidden"
+                    className="shrink-0 sm:hidden z-30"
                   >
                     <ChevronRight className="size-5" />
                     <span className="sr-only">Toggle Menu</span>
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="left" className="w-[300px] sm:w-[400px]">
+                <SheetContent
+                  side="left"
+                  className="w-[300px] sm:w-[400px] pt-20"
+                >
                   <nav className="grid gap-2">
                     <Link
-                      href="#"
+                      href="/dashboard"
                       className="flex items-center gap-2 text-lg font-semibold"
                     >
-                      <Package2 className="size-5" />
+                      <ClapperboardIcon className="size-5" />
                       FilmVilla
                     </Link>
                     <Link
-                      href="#"
+                      href="/dashboard"
                       className="flex items-center gap-2 text-lg font-semibold"
                     >
                       <Home className="size-5" />
                       Home
                     </Link>
                     <Link
-                      href="#"
-                      className="flex items-center gap-2 text-lg font-semibold"
-                    >
-                      <Users2 className="size-5" />
-                      TV Shows
-                    </Link>
-                    <Link
-                      href="#"
+                      href="/dashboard/explore"
                       className="flex items-center gap-2 text-lg font-semibold"
                     >
                       <LineChart className="size-5" />
-                      Movies
+                      Explore
+                    </Link>
+                    <Link
+                      href="/dashboard/profile"
+                      className="flex items-center gap-2 text-lg font-semibold"
+                    >
+                      <UserCircleIcon className="size-5" />
+                      Profile
                     </Link>
                   </nav>
                 </SheetContent>
               </Sheet>
-              <div className="flex w-11/12 items-center justify-between gap-4 p-2 fixed top-0">
+              <div className="flex w-11/12 items-center justify-end md:justify-between gap-4 p-2 fixed top-0">
                 <Link
                   href="/dashboard"
-                  className="flex items-center gap-2 text-lg font-semibold"
+                  className="items-center gap-2 text-lg font-semibold hidden md:flex"
                 >
                   <ArrowLeft className="size-5" />
                 </Link>

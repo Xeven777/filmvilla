@@ -38,7 +38,7 @@ export default async function Dashboard() {
 
           {/* User Profile and Subscription */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <Card className="col-span-2 bg-gradient-to-r from-card to-primary/20 text-foreground relative">
+            <Card className="md:col-span-2 bg-gradient-to-r from-card to-primary/20 text-foreground relative">
               <CardHeader>
                 <CardTitle>Your Profile</CardTitle>
               </CardHeader>
@@ -60,7 +60,7 @@ export default async function Dashboard() {
                     </p>
                   </div>
                 </div>
-                <Clapperboard className="size-40 text-muted-foreground/20 absolute top-1/2 -translate-y-1/2 right-0" />
+                <Clapperboard className="md:size-40 text-muted-foreground/20 absolute top-1/2 -translate-y-1/2 right-0 hidden md:block" />
               </CardContent>
               <CardFooter>
                 <Link href="/dashboard/profile/settings">
